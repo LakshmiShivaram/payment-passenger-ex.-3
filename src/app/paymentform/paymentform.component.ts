@@ -14,10 +14,7 @@ import { Ipayment } from '../sharedData/paymentDetails';
 })
 export class PaymentformComponent implements OnInit {
   paymentForm: FormGroup;
-  constructor(
-    private formBuilder: FormBuilder,
-    private store: Store<{ passengeDetails: Ipayment }>
-  ) {}
+  constructor(private formBuilder: FormBuilder, private store: Store) {}
 
   ngOnInit() {
     this.paymentForm = this.formBuilder.group({
