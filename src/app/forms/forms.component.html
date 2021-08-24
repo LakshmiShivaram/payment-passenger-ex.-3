@@ -104,7 +104,11 @@ formControlName="firstname" [ngClass]="{'is-invalid': (passengerForm.get('firstn
             <br>
             <div>
               <button class="btn btn-sm btn-success" (click)="saveForm()" [disabled]="!passengerForm.valid">Save form</button>&nbsp;&nbsp;
+
               <button class="btn btn-sm btn-primary" (click)="continue(passengerForm.value)"  type="submit"[disabled]="!passengerForm.valid">Continue </button>
+
+              <button class="btn btn-info"  title="Reset Form" (click)="reset()" [disabled]="!passengerForm.valid">Reset</button>
+
             </div>
           </form>
         </div>
