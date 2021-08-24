@@ -1,23 +1,21 @@
-import { createReducer, on, State } from '@ngrx/store';
+import { createReducer, on } from '@ngrx/store';
 import {
   setPassengerDetails,
   resetPassengerDetails
 } from '../formStore/form.action';
 import { passangerState } from '../sharedData/passengerDetails';
 
-const initialState: passangerState = {
-  passengerDetails: null
-};
+const initialState: passangerState = null;
 
 const _passengerReducer = createReducer(
   initialState,
 
   on(setPassengerDetails, (state, action) => {
-    return { ...state, passengerDetails: action.passengerDetails };
+    return { ...state, action };
   }),
 
   on(resetPassengerDetails, state => {
-    return { ...state, passengerDetails: null };
+    return { ...state };
   })
 );
 

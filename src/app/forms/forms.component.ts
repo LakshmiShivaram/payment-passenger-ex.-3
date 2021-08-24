@@ -36,25 +36,35 @@ export class FormsComponent implements OnInit {
     });
   }
 
-  saveForm() {
-    alert('Form Saved.');
-  }
+  // saveForm() {
+  //   alert('Form Saved.');
+  // }
 
-  continue(details) {
-    this.summaryService.setDetails(details);
-    this.router.navigate(['/paymentForm']);
-  }
-  save(details) {
-    alert('Form Saved.');
+  onSubmit() {
+    // this.store.dispatch(setPassengerDetails({ passengerDetails }));
+    this.summaryService.setDetails(this.passengerForm.value);
     let passengerDetails: Ipassenger = {
-      firstname: details.firstname,
-      lastname: details.lastname,
-      address: details.address,
-      email: details.email,
-      phonenumber: details.phonenumber
+      firstname: this.passengerForm.value.firstname,
+      lastname: this.passengerForm.value.lastname,
+      address: this.passengerForm.value.address,
+      email: this.passengerForm.value.email,
+      phonenumber: this.passengerForm.value.phonenumber
     };
     this.store.dispatch(setPassengerDetails({ passengerDetails }));
+
+    this.router.navigate(['/paymentForm']);
   }
+  // saveForm(details) {
+  //   alert('Form Saved.');
+  //   let passengerDetails: Ipassenger = {
+  //     firstname: details.firstname,
+  //     lastname: details.lastname,
+  //     address: details.address,
+  //     email: details.email,
+  //     phonenumber: details.phonenumber
+  //   };
+  //   this.store.dispatch(setPassengerDetails({ passengerDetails }));
+  // }
 
   reset() {
     this.store.dispatch(resetPassengerDetails());

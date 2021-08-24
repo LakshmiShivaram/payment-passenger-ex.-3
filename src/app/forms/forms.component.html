@@ -7,7 +7,7 @@
           <hr>
           <form [formGroup]="passengerForm" (ngSubmit)="onSubmit()">
             <!-- LastName -->
-            <div class="form-row">
+            <div class=" form-row">
               <div class="form-group">
                 <label class="col-form-label" for="lastnameId">Last Name</label>
                 <input class="form-control" id="lastnameId" type="text" placeholder="Last Name (required)"
@@ -103,9 +103,9 @@ formControlName="firstname" [ngClass]="{'is-invalid': (passengerForm.get('firstn
             </div>
             <br>
             <div>
-              <button class="btn btn-sm btn-success" (click)="saveForm()" [disabled]="!passengerForm.valid">Save form</button>&nbsp;&nbsp;
+              <!-- <button class="btn btn-sm btn-success" [disabled]="!passengerForm.valid">Save form</button>&nbsp;&nbsp; -->
 
-              <button class="btn btn-sm btn-primary" (click)="continue(passengerForm.value)"  type="submit"[disabled]="!passengerForm.valid">Continue </button>&nbsp;&nbsp;
+              <button class="btn btn-sm btn-primary"   type="submit"[disabled]="!passengerForm.valid">Continue </button>&nbsp;&nbsp;
 
               <button class="btn  btn-sm  btn-info"  title="Reset Form" (click)="reset()" [disabled]="!passengerForm.valid">Reset</button>
 

@@ -5,16 +5,14 @@ import {
 } from '../paymentFormStore/payment.action';
 import { paymentState } from '../sharedData/paymentDetails';
 
-const initialState: paymentState = {
-  paymentDetails: null
-};
+const initialState: paymentState = null;
 const _paymentsReducer = createReducer(
   initialState,
-  on(setPaymentDetails, (state, action) => {
-    return { ...state, paymentDetails: action.paymentDetails };
+  on(setPaymentDetails, state => {
+    return { ...state };
   }),
   on(resetPaymentDetails, state => {
-    return { ...state, paymentDetails: null };
+    return { ...state };
   })
 );
 
