@@ -1,4 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
+import { FormGroup } from '@angular/forms';
+import { PassengerSummaryService } from '../passenger-summary.service';
 
 @Component({
   selector: 'app-summary',
@@ -6,10 +8,12 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./summary.component.css']
 })
 export class SummaryComponent implements OnInit {
-
-  constructor() { }
+  @Input() summary: FormGroup[];
+  constructor(private summaryService: PassengerSummaryService) {}
 
   ngOnInit() {
+    if (!this.summary) {
+      this.summary = this.summaryService.getDetails();
+    }
   }
-
 }
