@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Store } from '@ngrx/store';
-import { addPassengerDetails } from './formStore/form.action';
+// import { addPassengerDetails } from './formStore/form.action';
 
 @Injectable()
 export class PassengerSummaryService {

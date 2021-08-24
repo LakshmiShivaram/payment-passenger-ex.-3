@@ -3,8 +3,8 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { Store } from '@ngrx/store';
 import {
-  addPassengerDetails,
-  resetPassengerDetails
+  resetPassengerDetails,
+  setPassengerDetails
 } from '../formStore/form.action';
 import { PassengerSummaryService } from '../passenger-summary.service';
 import { Ipassenger } from '../sharedData/passengerDetails';
@@ -53,7 +53,7 @@ export class FormsComponent implements OnInit {
       email: details.email,
       phonenumber: details.phonenumber
     };
-    this.store.dispatch(addPassengerDetails({ passengerDetails }));
+    this.store.dispatch(setPassengerDetails({ passengerDetails }));
   }
 
   reset() {

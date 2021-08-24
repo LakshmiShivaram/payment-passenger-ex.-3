@@ -1,6 +1,6 @@
 import { createReducer, on, State } from '@ngrx/store';
 import {
-  addPaymentDetails,
+  setPaymentDetails,
   resetPaymentDetails
 } from '../paymentFormStore/payment.action';
 import { paymentState } from '../sharedData/paymentDetails';
@@ -10,7 +10,7 @@ const initialState: paymentState = {
 };
 const _paymentsReducer = createReducer(
   initialState,
-  on(addPaymentDetails, (state, action) => {
+  on(setPaymentDetails, (state, action) => {
     return { ...state, paymentDetails: action.paymentDetails };
   }),
   on(resetPaymentDetails, state => {

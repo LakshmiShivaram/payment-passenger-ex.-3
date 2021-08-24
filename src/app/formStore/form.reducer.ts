@@ -1,6 +1,6 @@
 import { createReducer, on, State } from '@ngrx/store';
 import {
-  addPassengerDetails,
+  setPassengerDetails,
   resetPassengerDetails
 } from '../formStore/form.action';
 import { passangerState } from '../sharedData/passengerDetails';
@@ -12,7 +12,7 @@ const initialState: passangerState = {
 const _passengerReducer = createReducer(
   initialState,
 
-  on(addPassengerDetails, (state, action) => {
+  on(setPassengerDetails, (state, action) => {
     return { ...state, passengerDetails: action.passengerDetails };
   }),
 
