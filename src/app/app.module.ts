@@ -12,6 +12,7 @@ import { PassengerSummaryService } from './passenger-summary.service';
 import { StoreModule } from '@ngrx/store';
 import { paymentReducer } from './paymentFormStore/payment.reducer';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
+import { passengerReducer } from './formStore/form.reducer';
 
 const routes: Routes = [
   { path: 'forms', component: FormsComponent },
@@ -27,7 +28,7 @@ const routes: Routes = [
     ReactiveFormsModule,
     RouterModule.forRoot(routes),
     StoreModule.forRoot({
-      passengeDetails: passengerDetailsReducer,
+      passengeDetails: passengerReducer,
       paymentDetails: paymentReducer
     }),
     StoreDevtoolsModule.instrument({
