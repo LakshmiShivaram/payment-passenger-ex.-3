@@ -1,7 +1,13 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
+import { Store } from '@ngrx/store';
+import {
+  addPassengerDetails,
+  resetPassengerDetails
+} from '../formStore/form.action';
 import { PassengerSummaryService } from '../passenger-summary.service';
+import { Ipassenger } from '../sharedData/passengerDetails';
 
 @Component({
   selector: 'app-forms',
@@ -13,7 +19,8 @@ export class FormsComponent implements OnInit {
   constructor(
     private formBuilder: FormBuilder,
     private router: Router,
-    private summaryService: PassengerSummaryService
+    private summaryService: PassengerSummaryService,
+    private store: Store<{ passengeDetails: Ipassenger }>
   ) {}
 
   ngOnInit() {
@@ -36,5 +43,20 @@ export class FormsComponent implements OnInit {
   continue(details: string) {
     this.summaryService.setDetails(details);
     this.router.navigate(['/paymentForm']);
+  }
+  save(details) {
+    alert('Form Saved.');
+    let passengerDetails: Ipassenger = {
+      firstname: details.firstname,
+      lastname: details.lastname,
+      address: details.address,
+      email: details.email,
+      phonenumber: details.phonenumber
+    };
+    this.store.dispatch(addPassengerDetails({ passengerDetails }));
+  }
+
+  reset() {
+    this.store.dispatch(resetPassengerDetails());
   }
 }

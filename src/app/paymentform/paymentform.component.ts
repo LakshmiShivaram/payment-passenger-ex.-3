@@ -1,5 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { Store } from '@ngrx/store';
+import {
+  addPaymentDetails,
+  resetPaymentDetails
+} from '../paymentFormStore/payment.action';
+import { Ipayment } from '../sharedData/paymentDetails';
 
 @Component({
   selector: 'app-paymentform',
@@ -8,7 +14,10 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 })
 export class PaymentformComponent implements OnInit {
   paymentForm: FormGroup;
-  constructor(private formBuilder: FormBuilder) {}
+  constructor(
+    private formBuilder: FormBuilder,
+    private store: Store<{ passengeDetails: Ipayment }>
+  ) {}
 
   ngOnInit() {
     this.paymentForm = this.formBuilder.group({
@@ -27,7 +36,17 @@ export class PaymentformComponent implements OnInit {
     });
   }
 
-  Continue() {
+  continue(details) {
     alert('Confirmed.');
+    let paymentDetails: Ipayment = {
+      creditCardNumber: details.creditCardNumber,
+      expirationDate: details.expirationDate,
+      cva: details.cva
+    };
+    this.store.dispatch(addPaymentDetails({ paymentDetails }));
+  }
+
+  reset() {
+    this.store.dispatch(resetPaymentDetails());
   }
 }

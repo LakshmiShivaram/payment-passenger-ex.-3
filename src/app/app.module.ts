@@ -9,6 +9,9 @@ import { PaymentformComponent } from './paymentform/paymentform.component';
 import { FormsComponent } from './forms/forms.component';
 import { RouterModule, Routes } from '@angular/router';
 import { PassengerSummaryService } from './passenger-summary.service';
+import { StoreModule } from '@ngrx/store';
+import { paymentReducer } from './paymentFormStore/payment.reducer';
+import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 
 const routes: Routes = [
   { path: 'forms', component: FormsComponent },
@@ -22,7 +25,14 @@ const routes: Routes = [
     BrowserModule,
     FormsModule,
     ReactiveFormsModule,
-    RouterModule.forRoot(routes)
+    RouterModule.forRoot(routes),
+    StoreModule.forRoot({
+      passengeDetails: passengerDetailsReducer,
+      paymentDetails: paymentReducer
+    }),
+    StoreDevtoolsModule.instrument({
+      maxAge: 25 // Retains last 25 states
+    })
   ],
   declarations: [
     AppComponent,
