@@ -11,7 +11,8 @@ const _passengerReducer = createReducer(
   initialState,
 
   on(setPassengerDetails, (state, action) => {
-    return { ...state, action };
+    console.log(action);
+    return { ...state, ...action };
   }),
 
   on(resetPassengerDetails, (state, action) => {
