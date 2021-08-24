@@ -40,7 +40,7 @@ export class FormsComponent implements OnInit {
     alert('Form Saved.');
   }
 
-  continue(details: string) {
+  continue(details) {
     this.summaryService.setDetails(details);
     this.router.navigate(['/paymentForm']);
   }
