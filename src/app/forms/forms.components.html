@@ -1,0 +1,115 @@
+<div class="container">
+  <div class="row">
+    <div class="col-md-6">
+      <div class="card">
+        <div style="padding:10px">
+          <h5>PASSENGER FORM</h5>
+          <hr>
+          <form [formGroup]="passengerForm" (ngSubmit)="onSubmit()">
+            <!-- LastName -->
+            <div class="form-row">
+              <div class="form-group">
+                <label class="col-form-label" for="lastnameId">Last Name</label>
+                <input class="form-control" id="lastnameId" type="text" placeholder="Last Name (required)"
+          formControlName="lastname" [ngClass]="{'is-invalid': (passengerForm.get('lastname').dirty) &&
+                                              !passengerForm.get('lastname').valid }" />
+
+                <span class="invalid-feedback">
+              <span *ngIf="passengerForm.get('lastname').errors?.required">
+                Please enter your Last name.
+              </span>
+                <span *ngIf="passengerForm.get('lastname').errors?.maxlength">
+                The first name must be longer than 12 characters.
+              </span>
+                </span>
+              </div>
+            </div>
+            <!-- firstName -->
+            <div class="form-row">
+              <div class="form-group">
+                <label class="col-form-label" for="firstnameId">First Name</label>
+
+                <input class="form-control" id="firstNameId" type="text" placeholder="First Name (required)"
+formControlName="firstname" [ngClass]="{'is-invalid': (passengerForm.get('firstname').dirty) &&
+                                   !passengerForm.get('firstname').valid }" />
+
+                <span class="invalid-feedback">
+   <span *ngIf="passengerForm.get('firstname').errors?.required">
+     Please enter your first name.
+   </span>
+                <span *ngIf="passengerForm.get('firstname').errors?.maxlength">
+     The first name must be longer than 12 characters.
+   </span>
+                </span>
+              </div>
+            </div>
+            <!-- Address -->
+            <div class="form-row">
+              <div class="form-group">
+                <label class="col-form-label" for="addressId">Address</label>
+
+                <input class="form-control" id="addressId" type="text" placeholder="Address (required)"
+        formControlName="address" [ngClass]="{'is-invalid': (passengerForm.get('address').dirty) &&
+                                            !passengerForm.get('address').valid }" />
+
+                <span class="invalid-feedback">
+            <span *ngIf="passengerForm.get('address').errors?.required">
+              Please enter your Last name.
+            </span>
+                <span *ngIf="passengerForm.get('address').errors?.maxlength">
+              The first name must be longer than 12 characters.
+            </span>
+                </span>
+              </div>
+            </div>
+            <!-- email -->
+            <div class="form-row">
+              <div class="form-group">
+                <label class="col-form-label" for="emailId">Email</label>
+
+                <input class="form-control" id="emailId" type="email" placeholder="Email (required)"
+      formControlName="email" [ngClass]="{'is-invalid': (passengerForm.get('email').dirty) &&
+                                          !passengerForm.get('email').valid }" />
+
+                <span class="invalid-feedback">
+          <span *ngIf="passengerForm.get('email').errors?.required">
+            Please enter Email ID in the required format.
+          </span>
+                <span *ngIf="passengerForm.get('email').errors?.email">
+          Please enter valid email!
+        </span>
+                </span>
+              </div>
+            </div>
+            <!-- phone Number -->
+
+            <div class="form-row">
+              <div class="form-group">
+                <label class="col-form-label" for="phonenumberId">Phone Number</label>
+
+                <input class="form-control" id="phonenumberId" type="text" placeholder="Phone Number "
+    formControlName="phonenumber" [ngClass]="{'is-invalid': (passengerForm.get('phonenumber').dirty) &&
+                                        !passengerForm.get('phonenumber').valid }" />
+
+                <span class="invalid-feedback">
+        <span *ngIf="passengerForm.get('phonenumber').errors?.required">
+          Please enter phone Number
+        </span>
+                <span *ngIf="passengerForm.get('phonenumber').errors?.maxlength">
+        The Phone Number must be 12 digit Format.
+      </span>
+                </span>
+              </div>
+            </div>
+            <br>
+            <div>
+              <button class="btn btn-sm btn-success" (click)="saveForm()" [disabled]="!passengerForm.valid">Save form</button>&nbsp;&nbsp;
+              <button class="btn btn-sm btn-primary" (click)="continue(passengerForm.value)"  type="submit"[disabled]="!passengerForm.valid">Continue </button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+    <app-summary [summary]="passengerForm.value"></app-summary>
+  </div>
+</div>
