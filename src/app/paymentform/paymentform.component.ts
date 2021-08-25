@@ -33,14 +33,15 @@ export class PaymentformComponent implements OnInit {
     });
   }
 
-  onSubmit() {
+  onSubmit(details) {
     alert('Confirmed.');
     // let paymentDetails: Ipayment = {
     //   creditCardNumber: this.paymentForm.value.creditCardNumber,
     //   expirationDate: this.paymentForm.value.expirationDate,
     //   cva: this.paymentForm.value.cva
     // };
-    this.store.dispatch(setPaymentDetails(this.paymentForm.value));
+    let paymentDetails: Ipayment = details;
+    this.store.dispatch(setPaymentDetails({ paymentDetails }));
   }
 
   reset() {

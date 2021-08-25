@@ -7,7 +7,7 @@
       <div style="padding:10px">
         <h5>PAYMENT FORM</h5>
         <hr>
-        <form [formGroup]="paymentForm" (ngSubmit)="onSubmit()">
+        <form [formGroup]="paymentForm" (ngSubmit)="onSubmit(paymentForm.value)">
           <div class="form-row">
             <div class="form-group">
               <label class="col-form-label" for="creditCardNumberId">Credit Card Number</label>

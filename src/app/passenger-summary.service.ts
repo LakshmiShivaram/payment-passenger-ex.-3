@@ -1,6 +1,9 @@
 import { Injectable } from '@angular/core';
 import { Store } from '@ngrx/store';
 import { setPassengerDetails } from './formStore/form.action';
+import { setPaymentDetails } from './paymentFormStore/payment.action';
+import { Ipassenger } from './sharedData/passengerDetails';
+import { Ipayment } from './sharedData/paymentDetails';
 
 @Injectable()
 export class PassengerSummaryService {
@@ -20,6 +23,9 @@ export class PassengerSummaryService {
   }
   setDetails(passengerValue) {
     this.summaryDetails = passengerValue;
-    this.store.dispatch(setPassengerDetails(passengerValue));
+    let passengerDetails: Ipassenger = passengerValue;
+    // let paymentDetails: Ipayment = paymentValue;
+    this.store.dispatch(setPassengerDetails({ passengerDetails }));
+    // this.store.dispatch(setPaymentDetails({ paymentDetails }));
   }
 }
