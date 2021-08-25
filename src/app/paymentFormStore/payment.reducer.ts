@@ -12,7 +12,7 @@ const _paymentsReducer = createReducer(
     return { ...state, ...action.paymentDetails };
   }),
   on(resetPaymentDetails, state => {
-    return { ...state };
+    return (state = null);
   })
 );
 
