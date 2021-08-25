@@ -15,7 +15,7 @@ import { Ipassenger } from '../sharedData/passengerDetails';
   styleUrls: ['./forms.component.css']
 })
 export class FormsComponent implements OnInit {
-  passengerForm: FormGroup;
+  public passengerForm: FormGroup;
   constructor(
     private formBuilder: FormBuilder,
     private router: Router,

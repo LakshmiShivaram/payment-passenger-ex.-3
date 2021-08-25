@@ -24,8 +24,6 @@ export class PassengerSummaryService {
   setDetails(passengerValue) {
     this.summaryDetails = passengerValue;
     let passengerDetails: Ipassenger = passengerValue;
-    // let paymentDetails: Ipayment = paymentValue;
     this.store.dispatch(setPassengerDetails({ passengerDetails }));
-    // this.store.dispatch(setPaymentDetails({ paymentDetails }));
   }
 }

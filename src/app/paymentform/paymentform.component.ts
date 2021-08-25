@@ -13,7 +13,7 @@ import { Ipayment } from '../sharedData/paymentDetails';
   styleUrls: ['./paymentform.component.css']
 })
 export class PaymentformComponent implements OnInit {
-  paymentForm: FormGroup;
+  public paymentForm: FormGroup;
   constructor(private formBuilder: FormBuilder, private store: Store) {}
 
   ngOnInit() {
