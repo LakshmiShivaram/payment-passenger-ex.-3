@@ -38,15 +38,6 @@ export class FormsComponent implements OnInit {
 
   onSubmit() {
     this.summaryService.setDetails(this.passengerForm.value);
-    // let passengerDetails: Ipassenger = {
-    //   firstname: this.passengerForm.value.firstname,
-    //   lastname: this.passengerForm.value.lastname,
-    //   address: this.passengerForm.value.address,
-    //   email: this.passengerForm.value.email,
-    //   phonenumber: this.passengerForm.value.phonenumber
-    // };
-    // this.store.dispatch(setPassengerDetails(passengerDetails ));
-
     this.router.navigate(['/paymentForm']);
   }
 
